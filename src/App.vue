@@ -13,13 +13,13 @@ export default {
     AppMain,
   },
   created() {
-    this.getFilms();
+    this.getMovies();
 
   },
   methods: {
-    getFilms(){
-      axios.get(`${store.apiUrl}`).then((response) =>{
-          store.filmsList = response.data.results;
+    getMovies(){
+      axios.get(`${store.apiUrlMovies}`).then((response) =>{
+          store.moviesList = response.data.results;
           console.log(response.data.results);
         });
     }
