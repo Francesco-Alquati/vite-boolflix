@@ -1,11 +1,13 @@
 <script>
 import { store } from './store.js';
-import axios from 'axios';
+import AppHeader from './components/AppHeader.vue';
+import Searchbar from './components/Searchbar.vue';
 
 
 export default {
   components: {
-
+    AppHeader,
+    Searchbar,
   },
   created() {
 
@@ -14,17 +16,19 @@ export default {
 
   },
   data() {
-
+    return {
+      store,
+    }
   },
 }
 </script>
 
 <template>
   <header>
-
+    <AppHeader />
   </header>
   <main>
-
+    <Searchbar />
   </main>
 </template>
 
