@@ -14,12 +14,19 @@ export default {
   },
   created() {
     this.getMovies();
+    this.getSeries();
 
   },
   methods: {
     getMovies(){
       axios.get(`${store.apiUrlMovies}`).then((response) =>{
           store.moviesList = response.data.results;
+          console.log(response.data.results);
+        });
+    },
+    getSeries(){
+      axios.get(`${store.apiUrlSeries}`).then((response) =>{
+          store.seriesList = response.data.results;
           console.log(response.data.results);
         });
     }

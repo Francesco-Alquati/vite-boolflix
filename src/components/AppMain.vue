@@ -15,6 +15,9 @@ export default {
       } else if (language === 'ro') {
         return 'https://flagsapi.com/RO/shiny/64.png'; 
       }
+      else if (language === 'ja') {
+        return 'https://flagsapi.com/JP/shiny/64.png'; 
+      }
     },
   },
 }
@@ -32,9 +35,21 @@ export default {
             </div>
         </div>
     </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3 my-2 bg-danger" v-for="serie in store.seriesList">
+                <div class="d-flex flex-column align-items-center justify-content-center text-center">
+                    <h6>{{ serie.name }}</h6>
+                    <h6>{{ serie.original_name}}</h6>
+                    <img :src="getFlagUrl(serie.original_language)" alt="Flag"/>
+                    <h6>{{ serie.vote_average}}</h6>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 <style lang="scss" scoped>
 img {
-  width: 15%;
+  width: 12%;
 }
 </style>
