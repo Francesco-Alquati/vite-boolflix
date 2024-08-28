@@ -10,12 +10,12 @@ export default {
 }
 </script>
 <template>
-    <div class="container">
+    <div class="container-fluid bg-black">
         <div class="row">
             <div class="col-12 p-3">
                 <div class="d-flex align-items-center justify-content-center">
                     <input type="search" v-model="searchTerm" placeholder="Cerca un titolo">
-                    <button type="button" class="btn btn-primary btn-sm" @click="$emit('search', searchTerm)">Cerca</button>
+                    <button type="button" class="btn btn-primary ms-2 btn-sm" @click="$emit('search', searchTerm)">Cerca</button>
                 </div>
             </div>
         </div>

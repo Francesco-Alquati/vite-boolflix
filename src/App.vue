@@ -21,7 +21,6 @@ export default {
     getMovies(searchTerm) {
       axios.get(`${store.apiUrlMovies}`, {
         params: {
-          api_key: 'YOUR_API_KEY', 
           query: searchTerm,
         },
       })
@@ -33,7 +32,6 @@ export default {
     getSeries(searchTerm) {
       axios.get(`${store.apiUrlSeries}`, {
         params: {
-          api_key: 'YOUR_API_KEY', 
           query: searchTerm,
         },
       })
