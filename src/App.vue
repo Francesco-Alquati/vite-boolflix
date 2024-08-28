@@ -18,24 +18,39 @@ export default {
 
   },
   methods: {
-    getMovies(){
-      axios.get(`${store.apiUrlMovies}`).then((response) =>{
-          store.moviesList = response.data.results;
-          console.log(response.data.results);
-        });
+    getMovies(searchTerm) {
+      axios.get(`${store.apiUrlMovies}`, {
+        params: {
+          api_key: 'YOUR_API_KEY', 
+          query: searchTerm,
+        },
+      })
+      .then((response) => {
+        store.moviesList = response.data.results;
+      })
     },
-    getSeries(){
-      axios.get(`${store.apiUrlSeries}`).then((response) =>{
+
+    getSeries(searchTerm) {
+      axios.get(`${store.apiUrlSeries}`, {
+        params: {
+          api_key: 'YOUR_API_KEY', 
+          query: searchTerm,
+        },
+      })
+      .then((response) => {
           store.seriesList = response.data.results;
-          console.log(response.data.results);
-        });
-    }
-
-
+      })
+    },
+    updateSearch(term) {
+      this.getMovies(term);
+      this.getSeries(term);
+    },
   },
   data() {
     return {
       store,
+      moviesList: [],
+      seriesList: [],
     }
   },
 }
@@ -46,8 +61,8 @@ export default {
     <AppHeader />
   </header>
   <main>
-    <Searchbar />
-    <AppMain />
+    <Searchbar @search="updateSearch" />
+    <AppMain :movies="moviesList" :series="seriesList" />
   </main>
 </template>
 
