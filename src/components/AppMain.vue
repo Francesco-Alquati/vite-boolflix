@@ -71,7 +71,7 @@ export default {
           <h6 class="mt-3">{{ serie.name }}</h6>
           <h6>{{ serie.original_name}}</h6>
           <img class="flag" :src="getFlagUrl(serie.original_language)" alt="Flag"/>
-          <div class="stars mb-3">
+          <div class="stars">
             <i class="fas fa-star" v-for="n in convertVote(serie.vote_average)" :key="n"></i>
             <i class="far fa-star" v-for="n in 5 - convertVote(serie.vote_average)" :key="n"></i>
           </div>

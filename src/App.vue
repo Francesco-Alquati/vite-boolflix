@@ -57,9 +57,9 @@ export default {
 <template>
   <header>
     <AppHeader />
+    <Searchbar @search="updateSearch" />
   </header>
   <main>
-    <Searchbar @search="updateSearch" />
     <AppMain :movies="moviesList" :series="seriesList" />
   </main>
 </template>
